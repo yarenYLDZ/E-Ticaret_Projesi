@@ -1,48 +1,61 @@
-### 🛒 Terminal Tabanlı E-Ticaret Uygulaması
+# 🛒 Terminal-Based E-Commerce Application
 
-Bu projede, Java kullanarak terminal tabanlı bir e-ticaret sistemi geliştirdim. Uygulama temel olarak kullanıcıların sisteme kayıt olabildiği, giriş yapabildiği, ürünleri arayıp sipariş verebildiği basit ama işlevsel bir yapı sunuyor. Tüm etkileşim terminal menüsü üzerinden gerçekleşiyor.
-
----
-
-## 🧩 Projenin Amacı
-
-Bu uygulamayı geliştirirken asıl amacım; kullanıcı yönetimi, şifreleme, ürün yönetimi ve sipariş süreçlerini kapsayan bir sistem mimarisi kurmak ve bunu Java, PostgreSQL ve Maven kullanarak uçtan uca hayata geçirmekti. Uygulamanın gerçek dünya kullanımına yakın özellikler taşımasına dikkat ettim.
+This project is a **terminal-based e-commerce system** developed using **Java**.  
+It provides a simple yet functional structure where users can **register**, **log in**, **search for products**, and **place orders** — all through a text-based menu interface.
 
 ---
 
-## 🔐 Kullanıcı İşlemleri
+## 🧩 Project Purpose
 
-- 👤 **Kayıt Olma**  
-  Kullanıcılar sisteme e-posta ve şifre ile kayıt olabiliyor. Şifreler **SHA-256** algoritması ile şifrelenerek güvenli bir şekilde veritabanına kaydediliyor.
+The main goal of this project was to design and implement a **complete system architecture** that includes:
+- User management  
+- Password encryption  
+- Product management  
+- Order processing  
 
-- 🔑 **Giriş Yapma**  
-  Daha önce kayıt olmuş kullanıcılar, doğru e-posta ve şifre bilgileriyle sisteme giriş yapabiliyor. Yanlış girişlerde sistem uyarı veriyor.
-
-- 🚫 **Giriş Yapmadan Sipariş Verilemez**  
-  Sisteme giriş yapılmadan sipariş oluşturulmasına izin verilmiyor. Bu şekilde sadece doğrulanmış kullanıcılar işlem yapabiliyor.
-
----
-
-## 🛍️ Ürün ve Sipariş Yönetimi
-
-- 🔍 **Ürün Arama**  
-  Kullanıcılar ürünleri isimlerine göre terminal üzerinden arayabiliyor. Arama, veritabanındaki ürünlerle eşleştirilerek sonuç döndürüyor.
-
-- 🧾 **Sipariş Oluşturma**  
-  Giriş yapmış kullanıcılar istedikleri ürünleri seçerek sipariş oluşturabiliyor.
-
-- 📦 **Stok Takibi**  
-  Her ürünün bir stok bilgisi var. Eğer bir ürün stokta yoksa, sipariş verilmesine izin verilmiyor. Böylece gerçekçi bir alışveriş senaryosu oluşturuluyor.
+The system is built using **Java**, **PostgreSQL**, and **Maven**, focusing on maintainability and a real-world e-commerce flow.
 
 ---
 
-## 🧭 Menü Sistemi
+## 🔐 User Operations
 
-Tüm kullanıcı etkileşimleri terminal üzerinden bir menü yapısıyla sunuluyor. Menü, kullanıcıların hangi işlemi yapmak istediklerini seçmeleri için açık ve sade bir şekilde yönlendirme sağlıyor. Örneğin:
+### 👤 Sign Up  
+Users can register to the system with their **email** and **password**.  
+Passwords are encrypted using the **SHA-256** algorithm before being stored in the database.
 
+### 🔑 Log In  
+Registered users can log into the system using their credentials.  
+Invalid login attempts are handled with appropriate warning messages.
+
+### 🚫 Orders Require Authentication  
+Only authenticated users can create orders.  
+This ensures that all purchase operations are performed securely.
+
+---
+
+## 🛍️ Product & Order Management
+
+### 🔍 Product Search  
+Users can search for products by name directly through the terminal.  
+The system queries the database and returns all matching results.
+
+### 🧾 Create Order  
+Logged-in users can select desired products and create an order through the menu interface.
+
+### 📦 Stock Tracking  
+Each product includes a **stock quantity**.  
+If a product is out of stock, the system prevents the user from placing an order — simulating a realistic shopping scenario.
+
+---
+
+## 🧭 Menu System
+
+All user interactions are managed via a clear and user-friendly terminal menu.
+
+Example Menu:
 ```text
-1 - Kayıt Ol
-2 - Giriş Yap
-3 - Ürün Ara
-4 - Sipariş Oluştur
-5 - Çıkış
+1 - Sign Up
+2 - Log In
+3 - Search Product
+4 - Create Order
+5 - Exit
